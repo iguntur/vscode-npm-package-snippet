@@ -1,0 +1,14 @@
+.vscode
+.vscode-test
+source
+out/test
+
+.editorconfig
+.gitattributes
+.gitignore
+.npmrc
+tsconfig.json
+
+*.vsix
+**/*.map
+**/*.ts

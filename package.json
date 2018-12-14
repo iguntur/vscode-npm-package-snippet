@@ -1,0 +1,98 @@
+{
+	"name": "npm-package-snippet",
+	"version": "0.0.1",
+	"description": "NPM Package Snippet for Visual Studio Code",
+	"displayName": "NPM Package Snippet",
+	"publisher": "gunturpoetra",
+	"license": "MIT",
+	"main": "out/extension.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/iguntur/vscode-npm-package-snippet"
+	},
+	"bugs": {
+		"url": "https://github.com/iguntur/vscode-npm-package-snippet/issues"
+	},
+	"author": {
+		"name": "Guntur Poetra",
+		"email": "poetra.guntur@gmail.com",
+		"url": "https://github.com/iguntur"
+	},
+	"engines": {
+		"vscode": "^1.29.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "NPM Package Snippet",
+			"properties": {
+				"snippet.npm-package.filename": {
+					"type": "string",
+					"default": "",
+					"description": "Snippet filename."
+				},
+				"snippet.npm-package.semicolon": {
+					"type": "boolean",
+					"default": true,
+					"description": "Add semicolon after end of statement."
+				},
+				"snippet.npm-package.prefix.cjs": {
+					"type": "string",
+					"default": "pkg-req:",
+					"description": "Snippet prefix/hint for CommonJS."
+				},
+				"snippet.npm-package.prefix.esm": {
+					"type": "string",
+					"default": "pkg-imp:",
+					"description": "Snippet prefix/hint for ESModule."
+				},
+				"snippet.npm-package.prefix.ts": {
+					"type": "string",
+					"default": "pkg-ts:",
+					"description": "Snippet prefix/hint for typescript."
+				},
+				"snippet.npm-package.languages": {
+					"type": "array",
+					"default": [
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact"
+					],
+					"description": "Language to support for generate snippet."
+				},
+				"snippet.npm-package.quotes": {
+					"type": "string",
+					"enum": ["single", "double"],
+					"default": "single",
+					"description": "Use single quote (') or double quote (\") in your snippet."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "rm -rf out && tsc -p .",
+		"watch": "tsc -watch",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run build && node ./node_modules/vscode/bin/test",
+		"pack": "rm -f npm-*.vsix && vsce package"
+	},
+	"dependencies": {
+		"camelcase": "^5.0.0",
+		"read-pkg-up": "^4.0.0"
+	},
+	"devDependencies": {
+		"@guntur/tsconfig": "^1.0.0",
+		"@types/node": "^10.12.12",
+		"typescript": "^3.2.2",
+		"vsce": "^1.53.2",
+		"vscode": "^1.1.26"
+	}
+}
